@@ -226,7 +226,7 @@ $().ready(() => {
 <div id="content"></div>
 ```
 
-- 修改server.js文件
+- 修改server.js文件 
 >1、在server.js中引用引入所需控件
 ```base
 import express from 'express';
