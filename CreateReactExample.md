@@ -237,27 +237,22 @@ import bodyParser from 'body-parser';
 ```base
 var port = 3000;
 var app = express();
-
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.listen(port, () => {
-    console.log(`The server is running at http://localhost:${port}/`);
+    console.log('The server is running at http://localhost:${port}/');
 });
 ```
 >3、添加资源访问路径及数据
 ```base
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
 var data = [
     {id: 1, author: "Pete Hunt", text: "This is one comment"},
     {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
 ];
-
 app.get('/api/comments', (req, resp) => {
     resp.json(data);
 });
-
 app.post('/api/comments', (req, resp) => {
     data.push(req.body);
     resp.json(data);
